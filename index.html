@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyHeritage AI - Support & Privacy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --accent: #06b6d4;
+            --accent-gold: #f59e0b;
+            --text-primary: #ffffff;
+            --text-muted: rgba(255,255,255,0.7);
+            --border: rgba(255,255,255,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        section {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        ul {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .contact-card {
+            background: var(--bg-primary);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .contact-card .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent-gold);
+        }
+
+        .faq-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-item p {
+            margin-bottom: 0;
+        }
+
+        .disclaimer {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .disclaimer h3 {
+            color: var(--accent-gold);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .disclaimer p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .privacy-section {
+            margin-bottom: 30px;
+        }
+
+        .privacy-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .last-updated {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 25px;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+
+            .tabs {
+                gap: 8px;
+            }
+
+            .tab-btn {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🧬</div>
+            <h1>MyHeritage AI</h1>
+            <p class="tagline">Discover Your Roots Through AI</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('support')">📧 Support</button>
+            <button class="tab-btn" onclick="showTab('faq')">❓ FAQ</button>
+            <button class="tab-btn" onclick="showTab('privacy')">🔒 Privacy Policy</button>
+        </div>
+
+        <!-- Support Tab -->
+        <div id="support" class="tab-content active">
+            <section>
+                <h2>📧 Contact Support</h2>
+                <p>Have questions, feedback, or need help with the app? We're here to assist you!</p>
+                <div class="contact-card">
+                    <div class="icon">✉️</div>
+                    <h3>Email Us</h3>
+                    <a href="mailto:eask081@gmail.com">eask081@gmail.com</a>
+                    <p style="margin-top: 15px; font-size: 0.9rem;">We typically respond within 24-48 hours</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>📱 About the App</h2>
+                <p><strong>MyHeritage AI</strong> is an entertainment app that uses artificial intelligence to provide playful heritage estimates based on facial features. Think of it like a fun carnival fortune teller - entertaining but not scientific!</p>
+                <p><strong>Version:</strong> 1.0</p>
+                <p><strong>Developer:</strong> Erdal Asik</p>
+                <p><strong>Requirements:</strong> iOS 15.0 or later</p>
+                
+                <div class="disclaimer">
+                    <h3>⚠️ Entertainment Disclaimer</h3>
+                    <p>MyHeritage AI is an entertainment app only. The heritage estimates provided are fictional and for fun - they do not represent actual genetic ancestry or scientific analysis. For accurate heritage information, please consult professional DNA testing services.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- FAQ Tab -->
+        <div id="faq" class="tab-content">
+            <section>
+                <h2>❓ Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <h3>How does MyHeritage AI work?</h3>
+                    <p>MyHeritage AI uses advanced artificial intelligence to analyze facial features in your photos and provide an entertaining heritage estimate. Simply upload a clear, front-facing photo and let our AI do the rest!</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I purchase analysis credits?</h3>
+                    <p>Tap the credits button (🪙) in the app to open the purchase menu. Choose from our available packages: 1 Analysis ($0.49), 5 Analyses ($2.49), or 10 Analyses ($3.99). Payment is processed securely through the App Store.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I restore my purchases?</h3>
+                    <p>Yes! If you've reinstalled the app or switched devices, tap the credits button and select "Restore Purchases" to recover any previously purchased credits.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is my photo data safe?</h3>
+                    <p>Your privacy is important to us. Photos are analyzed securely and are not stored permanently on our servers. We do not share your photos or personal data with third parties.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Why did my analysis fail?</h3>
+                    <p>Analysis may fail if the photo doesn't have a clear, front-facing face, has poor lighting, or the image file is corrupted. Try uploading a different photo with good lighting and a clear view of your face.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How accurate are the results?</h3>
+                    <p>MyHeritage AI is designed purely for entertainment. The results are AI-generated estimates based on facial features and should not be considered scientifically accurate. For real ancestry information, we recommend professional DNA testing services.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How can I request a refund?</h3>
+                    <p>All purchases are processed through Apple's App Store. To request a refund, please visit reportaproblem.apple.com or contact Apple Support directly.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Privacy Policy Tab -->
+        <div id="privacy" class="tab-content">
+            <section>
+                <h2>🔒 Privacy Policy for MyHeritage AI</h2>
+                <p class="last-updated">Last Updated: January 2026</p>
+
+                <div class="privacy-section">
+                    <p>MyHeritage AI ("we", "our", or "us") is committed to protecting your privacy.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Information We Collect</h3>
+                    <p>We do not collect, store, or transmit any personal data. All photo analysis is performed locally on your device.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Photo Processing</h3>
+                    <p>Photos you select for analysis are processed entirely on your device. We do not upload, store, or have access to your photos.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>In-App Purchases</h3>
+                    <p>Purchase transactions are handled securely by Apple. We do not have access to your payment information.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Entertainment Purpose</h3>
+                    <p>This app is for entertainment purposes only. Results do not represent actual genetic ancestry.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Contact</h3>
+                    <p><a href="mailto:eask081@gmail.com" style="color: var(--accent);">eask081@gmail.com</a></p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Changes</h3>
+                    <p>We may update this policy from time to time. Please review periodically.</p>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>© 2026 MyHeritage AI. All rights reserved.</p>
+            <p style="margin-top: 10px;">Developer: Erdal Asik</p>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        if (window.location.hash === '#privacy') {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('privacy').classList.add('active');
+            document.querySelector('.tab-btn:nth-child(3)').classList.add('active');
+        }
+    </script>
+</body>
+</html>
